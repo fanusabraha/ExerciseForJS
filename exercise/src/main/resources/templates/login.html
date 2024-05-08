@@ -20,19 +20,34 @@
                                  'zipcode':187}
                                  }
         console.log(person)
-        console.log(`${person}`)
+        console.log(`${person} ${typeof person}`)
     </script>
 </head>
 <body>
     <h1>Learning JS </h1>
 
-    <div>
-        Username
+    <div>   Username
         <input type="text" th:field="${user.username}">
     </div>
-    <div>
-        userpassword
+    <div>   userpassword
         <input type="password" th:field="${user.password}">
+    </div>
+    <div>
+        <button type="button" id="submitbtn"> submit</button>
+    </div>
+
+    <div>
+    <script type="text/javascript">
+        submitbtn.addEventListener('click', submitBtnClick)
+        function submitBtnClick () {alert(`i have been clicked`)}
+
+        var submitButton = document.querySelector("#submitbtn")
+                console.log(`${submitButton}`)
+        document.getElementById("submitbtn").addEventListener("mouseover",
+                                            function(){this.style.backgroundColor="blue"})
+        document.getElementById("submitbtn").addEventListener("mouseout",
+                                            function(){this.style.backgroundColor="green"})
+    </script>
     </div>
 </body>
 </html>
