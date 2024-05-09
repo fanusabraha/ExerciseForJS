@@ -1,8 +1,14 @@
+        var user =[]
  submitbtn.addEventListener( 'click', ()=>{
         var username= document.querySelector("#username")
         var password= document.querySelector("#password")
         if (username.value=='' || password.value==''){ console.log(`please enter email and password`)}
-        else {console.log(`you submitted valid data`)}
+        else {console.log(`you submitted valid data`)
+        var userdata={ "username":username.value,
+                        "password": password.value
+            }
+            user.push(userdata)
+        }
         })
 
         submitbtn.addEventListener('click', submitBtnClick)
