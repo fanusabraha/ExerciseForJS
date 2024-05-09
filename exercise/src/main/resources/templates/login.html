@@ -40,13 +40,16 @@
     <script type="text/javascript">
         submitbtn.addEventListener('click', submitBtnClick)
         function submitBtnClick () {alert(`i have been clicked`)}
-
         var submitButton = document.querySelector("#submitbtn")
                 console.log(`${submitButton}`)
+
+        submitButton.addEventListener('focus', function(){console.log(`focused on the inputs`)})
+
         document.getElementById("submitbtn").addEventListener("mouseover",
                                             function(){this.style.backgroundColor="blue"})
         document.getElementById("submitbtn").addEventListener("mouseout",
                                             function(){this.style.backgroundColor="green"})
+
     </script>
     </div>
 </body>
