@@ -1,5 +1,5 @@
         var user =[]
- submitbtn.addEventListener( 'click', ()=>{
+    submitbtn.addEventListener( 'click', ()=>{
         var username= document.querySelector("#username")
         var password= document.querySelector("#password")
         if (username.value=='' || password.value==''){ console.log(`please enter email and password`)}
@@ -10,6 +10,19 @@
             user.push(userdata)
         }
         })
+
+        var usernameBtn= document.querySelector("#username")
+        // u can not get a data in GetMapping only in postMapping but u can in header of getMapping
+//        usernameBtn.addEventListener('blur',()=>{
+//        fetch('http://localhost:8080/users/exists').then((response)=>{console.log(response)})
+//        })
+        usernameBtn.addEventListener('blur',()=>{
+                fetch(`http://localhost:8080/users/exists?username=${username.value}&password=${password.value}`)
+                .then((response)=> response.json())
+                .then((data)=> {console.log(data)})})
+
+
+
 
         submitbtn.addEventListener('click', submitBtnClick)
         function submitBtnClick () {alert(`i have been clicked`)}
