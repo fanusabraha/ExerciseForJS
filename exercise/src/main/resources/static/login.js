@@ -1,4 +1,4 @@
-        var user =[]
+        var newuser =[]
     submitbtn.addEventListener( 'click', ()=>{
         var username= document.querySelector("#username")
         var password= document.querySelector("#password")
@@ -7,7 +7,7 @@
         var userdata={ "username":username.value,
                         "password": password.value
             }
-            user.push(userdata)
+            newuser.push(userdata)
         }
         })
 
@@ -16,11 +16,22 @@
 //        usernameBtn.addEventListener('blur',()=>{
 //        fetch('http://localhost:8080/users/exists').then((response)=>{console.log(response)})
 //        })
-        usernameBtn.addEventListener('blur',()=>{
-                fetch(`http://localhost:8080/users/exists?username=${username.value}&password=${password.value}`)
-                .then((response)=> response.json())
-                .then((data)=> {console.log(data)})})
+        // sending data using the headers in the GetMapping
 
+//        usernameBtn.addEventListener('blur',()=>{
+//                fetch(`http://localhost:8080/users/exists?username=${username.value}&password=${password.value}`)
+//                .then((response)=> response.json())
+//                .then((data)=> {console.log(data)})})
+            usernameBtn.addEventListener('blur',()=>{
+                    var user= {"username":username.value, "password":password.value}
+                    fetch(`http://localhost:8080/users/exists`,
+                    {method:"post",
+                    headers:{ "content-type": "application/json"},
+                    body:JSON.stringify(user)
+                    })
+                    .then((response)=> response.json())
+                    .then((data)=> {console.log(data)})
+                    })
 
 
 
