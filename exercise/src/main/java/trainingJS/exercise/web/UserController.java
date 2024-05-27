@@ -24,7 +24,7 @@ public class UserController {
     public boolean postExists(@RequestBody User user){
         user = userService.findByUsername(user.getUsername());
         System.out.println("data got from server" + user.getUsername() + user.getPassword());
-        return true;
+        return (user != null);
     }
     @GetMapping("register")
     public String registerNewUser(ModelMap model) {
